@@ -6,7 +6,7 @@
 /*   By: afontele <afontele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:31:12 by afontele          #+#    #+#             */
-/*   Updated: 2026/01/13 17:46:26 by afontele         ###   ########.fr       */
+/*   Updated: 2026/01/16 15:52:44 by afontele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 #include <iostream>
 #include <exception>
 #include <string>
+#include "Form.hpp"
 
-class Bureaucrat
+class Bureaucrat : public Form
 {
 private:
 	const std::string	_name;
@@ -33,8 +34,9 @@ public:
 	int			getGrade() const;
 	void		incrementGrade(); //--
 	void		decrementGrade(); //++
+	void		signForm();
 	//Exception nested classes
-	class		GradeTooHighException : public std::exception 
+	class		GradeTooHighException : public std::exception //should be virtual?
 	{
 	public:
 		virtual const char *what()const throw();
