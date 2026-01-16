@@ -6,7 +6,7 @@
 /*   By: afontele <afontele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:31:12 by afontele          #+#    #+#             */
-/*   Updated: 2026/01/13 17:46:26 by afontele         ###   ########.fr       */
+/*   Updated: 2026/01/16 13:13:36 by afontele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 #include <iostream>
 #include <exception>
 #include <string>
+
+#define RED "\033[1;31m"
+#define GREEN "\033[1;32m"
+#define YELLOW "\033[1;33m"
+#define END "\033[0m"
 
 class Bureaucrat
 {
@@ -33,6 +38,7 @@ public:
 	int			getGrade() const;
 	void		incrementGrade(); //--
 	void		decrementGrade(); //++
+	
 	//Exception nested classes
 	class		GradeTooHighException : public std::exception 
 	{
@@ -46,6 +52,6 @@ public:
 	};
 };
 
-std::ostream	&operator<<(std::ostream &out, Bureaucrat &obj);
+std::ostream	&operator<<(std::ostream &out, const Bureaucrat &obj);
 
 #endif
