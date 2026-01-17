@@ -6,7 +6,7 @@
 /*   By: afontele <afontele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 15:12:29 by afontele          #+#    #+#             */
-/*   Updated: 2026/01/16 16:56:16 by afontele         ###   ########.fr       */
+/*   Updated: 2026/01/17 16:48:01 by afontele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,10 @@ const std::string	Form::getIsSigned() const {
 }
 
 void	Form::beSigned(const Bureaucrat &b) {
-	if (b.getGrade() <= this->_sigGrade)
+	if (b.getGrade() <= this->_sigGrade) {
 		this->_signed = true;
+		std::cout << b.getName() << " signed " << this->_formName << std::endl;
+	}
 	else
 		throw (Form::GradeTooLowException());
 }

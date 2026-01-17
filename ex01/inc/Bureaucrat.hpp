@@ -6,7 +6,7 @@
 /*   By: afontele <afontele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:31:12 by afontele          #+#    #+#             */
-/*   Updated: 2026/01/16 15:52:44 by afontele         ###   ########.fr       */
+/*   Updated: 2026/01/17 16:32:40 by afontele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ public:
 	int			getGrade() const;
 	void		incrementGrade(); //--
 	void		decrementGrade(); //++
-	void		signForm();
+	void		signForm(Form &f);
 	//Exception nested classes
 	class		GradeTooHighException : public std::exception //should be virtual?
 	{

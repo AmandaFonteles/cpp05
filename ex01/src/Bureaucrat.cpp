@@ -6,7 +6,7 @@
 /*   By: afontele <afontele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:31:36 by afontele          #+#    #+#             */
-/*   Updated: 2026/01/16 17:00:00 by afontele         ###   ########.fr       */
+/*   Updated: 2026/01/17 16:53:44 by afontele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,18 @@ void	Bureaucrat::incrementGrade()
 	this->_grade--;
 	std::cout << "Bureaucrat " << this->_name << " incremented to grade " << this->_grade << std::endl;
 }
-
-void	Bureaucrat::signForm()
+// TO DO : include already signed optionm check if catch can catch GradetooLow or High from beSigned
+void	Bureaucrat::signForm(Form &f)
 {
-	if (Form::beSigned(*this))
+	try
+	{
+		f.beSigned(*this);
+	}
+	catch(const std::exception &e)
+	{
+		std::cout << this->_name << " couldn't sign " << f.getName() << " because " << e.what() << std::endl ;
+		return ;
+	}
 }
 
 const char	*Bureaucrat::GradeTooHighException::what() const throw()
