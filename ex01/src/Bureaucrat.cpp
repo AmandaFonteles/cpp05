@@ -6,7 +6,7 @@
 /*   By: afontele <afontele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:31:36 by afontele          #+#    #+#             */
-/*   Updated: 2026/01/17 16:53:44 by afontele         ###   ########.fr       */
+/*   Updated: 2026/01/19 18:52:15 by afontele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,10 @@ void	Bureaucrat::incrementGrade()
 // TO DO : include already signed optionm check if catch can catch GradetooLow or High from beSigned
 void	Bureaucrat::signForm(Form &f)
 {
+	if (f.isSigned()) {
+		std::cout << "Form " << f.getName() << " is already signed." << std::endl;
+		return ;
+	}
 	try
 	{
 		f.beSigned(*this);

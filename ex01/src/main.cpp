@@ -6,12 +6,12 @@
 /*   By: afontele <afontele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:27:36 by afontele          #+#    #+#             */
-/*   Updated: 2026/01/17 16:54:05 by afontele         ###   ########.fr       */
+/*   Updated: 2026/01/19 19:02:12 by afontele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "../inc/Bureaucrat.hpp"
+#include "../inc/Form.hpp"
 
 //TODO: debug and test
 
