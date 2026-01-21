@@ -6,7 +6,7 @@
 /*   By: afontele <afontele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 15:12:39 by afontele          #+#    #+#             */
-/*   Updated: 2026/01/19 19:02:43 by afontele         ###   ########.fr       */
+/*   Updated: 2026/01/21 10:38:05 by afontele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 #include <iostream>
 #include <string>
 #include <exception>
-#include "Bureaucrat.hpp"
+
+class	Bureaucrat;
 
 class	Form {
 private:

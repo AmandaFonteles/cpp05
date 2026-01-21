@@ -6,7 +6,7 @@
 /*   By: afontele <afontele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:31:12 by afontele          #+#    #+#             */
-/*   Updated: 2026/01/19 19:02:46 by afontele         ###   ########.fr       */
+/*   Updated: 2026/01/21 10:38:35 by afontele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
 #include <iostream>
 #include <exception>
 #include <string>
-#include "Form.hpp"
 
-class Bureaucrat : public Form
+class	Form;
+
+class Bureaucrat
 {
 private:
 	const std::string	_name;
