@@ -6,7 +6,7 @@
 #    By: afontele <afontele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/12 15:28:07 by afontele          #+#    #+#              #
-#    Updated: 2026/01/13 17:47:53 by afontele         ###   ########.fr        #
+#    Updated: 2026/01/21 12:45:01 by afontele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = bureaucrat
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
-SRC = $(SRC_DIR)main.cpp $(SRC_DIR)Bureaucrat.cpp
+SRC = $(SRC_DIR)main.cpp $(SRC_DIR)Form.cpp $(SRC_DIR)Bureaucrat.cpp $(SRC_DIR)ShrubberyCreationForm.cpp
 INC = -I inc
 OBJDIR = obj/
 SRC_DIR = src/
