@@ -6,7 +6,7 @@
 /*   By: afontele <afontele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:31:12 by afontele          #+#    #+#             */
-/*   Updated: 2026/01/21 10:38:35 by afontele         ###   ########.fr       */
+/*   Updated: 2026/01/22 13:55:42 by afontele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <exception>
 #include <string>
+#include "Form.hpp"
 
 class	Form;
 
@@ -37,7 +38,7 @@ public:
 	void		decrementGrade(); //++
 	void		signForm(Form &f);
 	//Exception nested classes
-	class		GradeTooHighException : public std::exception //should be virtual?
+	class		GradeTooHighException : public std::exception
 	{
 	public:
 		virtual const char *what()const throw();
@@ -49,6 +50,6 @@ public:
 	};
 };
 
-std::ostream	&operator<<(std::ostream &out, Bureaucrat &obj);
+std::ostream	&operator<<(std::ostream &out, const Bureaucrat &obj); // obj should be a pointer?why?
 
 #endif

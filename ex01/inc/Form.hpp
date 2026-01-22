@@ -6,7 +6,7 @@
 /*   By: afontele <afontele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 15:12:39 by afontele          #+#    #+#             */
-/*   Updated: 2026/01/21 10:38:05 by afontele         ###   ########.fr       */
+/*   Updated: 2026/01/22 13:54:33 by afontele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <string>
 #include <exception>
+#include "Bureaucrat.hpp"
 
 class	Bureaucrat;
 
@@ -39,10 +40,12 @@ public:
 	const std::string	getIsSigned() const;
 	class	GradeTooHighException : public std::exception
 	{
+	public:
 		virtual const char *what()const throw();
 	};
 	class	GradeTooLowException : public std::exception 
 	{
+	public:
 		virtual const char *what()const throw();
 	};
 };

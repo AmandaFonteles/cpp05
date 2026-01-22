@@ -6,7 +6,7 @@
 /*   By: afontele <afontele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 15:12:29 by afontele          #+#    #+#             */
-/*   Updated: 2026/01/17 16:48:01 by afontele         ###   ########.fr       */
+/*   Updated: 2026/01/22 12:31:40 by afontele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ Form::Form(const std::string name, const int gradeSig, const int gradeExec)
 	std::cout << name << " Form created" << std::endl;
 }
 
+//We include "_copy" to the name only for debugging purposes, usually we would not do this.
 Form::Form(const Form &other)
 : _formName(other._formName + "_copy"), _sigGrade(other._sigGrade), _execGrade(other._execGrade) {
 	std::cout << "Copy " << _formName << " created" << std::endl;
@@ -34,18 +35,18 @@ Form	&Form::operator=(const Form &other) {
 }
 
 Form::~Form() {
-	std::cout << _formName << " destroyed" << std::endl;
+	std::cout << "Form" << _formName << " destroyed" << std::endl;
 }
 
 const std::string	Form::getName() const {
 	return (this->_formName);
 }
 
-const int	Form::getSigGrade() const {
+int	Form::getSigGrade() const {
 	return (this->_sigGrade);
 }
 
-const int	Form::getExecGrade() const {
+int	Form::getExecGrade() const {
 	return (this->_execGrade);
 }
 
@@ -69,11 +70,11 @@ void	Form::beSigned(const Bureaucrat &b) {
 }
 
 const char *Form::GradeTooHighException::what()const throw() {
-	
+	return ("Grade is too high");
 }
 
 const char *Form::GradeTooLowException::what()const throw() {
-	
+	return ("Grade is too low");
 }
 
 std::ostream	&operator<<(std::ostream &out, const Form &obj) {

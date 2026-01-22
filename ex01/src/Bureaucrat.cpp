@@ -6,7 +6,7 @@
 /*   By: afontele <afontele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:31:36 by afontele          #+#    #+#             */
-/*   Updated: 2026/01/19 18:52:15 by afontele         ###   ########.fr       */
+/*   Updated: 2026/01/22 15:39:28 by afontele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ Bureaucrat::Bureaucrat() : _name("default"), _grade(150) {
 }
 
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name) {
+	//use set_grade and try catch inside the constructor?
 	if (grade < 1)
 		throw(Bureaucrat::GradeTooHighException());
 	else if (grade > 150)
@@ -70,7 +71,7 @@ void	Bureaucrat::incrementGrade()
 	this->_grade--;
 	std::cout << "Bureaucrat " << this->_name << " incremented to grade " << this->_grade << std::endl;
 }
-// TO DO : include already signed optionm check if catch can catch GradetooLow or High from beSigned
+
 void	Bureaucrat::signForm(Form &f)
 {
 	if (f.isSigned()) {
@@ -90,12 +91,12 @@ void	Bureaucrat::signForm(Form &f)
 
 const char	*Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Grade is too high: grade needs to be between 1 and 150");
+	return ("Grade is too high");
 }
 
 const char	*Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Grade is too low: grade needs to be between 150 and 1");
+	return ("Grade is too low");
 }
 
 std::ostream	&operator<<(std::ostream &out, const Bureaucrat &other)
