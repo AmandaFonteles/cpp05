@@ -6,7 +6,7 @@
 /*   By: afontele <afontele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 15:12:39 by afontele          #+#    #+#             */
-/*   Updated: 2026/01/22 13:54:33 by afontele         ###   ########.fr       */
+/*   Updated: 2026/01/23 11:23:22 by afontele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,15 @@ public:
 	Form();
 	Form(const std::string name, const int gradeSig, const int gradeExec);
 	Form(const Form &other);
-	Form	&operator=(const Form &other);
+	Form				&operator=(const Form &other);
 	~Form();
 	const std::string	getName() const;
 	bool				isSigned() const;
-	int			getSigGrade()const ;
-	int			getExecGrade() const;
+	int					getSigGrade()const ;
+	int					getExecGrade() const;
 	void				beSigned(const Bureaucrat &b);
 	const std::string	getIsSigned() const;
+	
 	class	GradeTooHighException : public std::exception
 	{
 	public:

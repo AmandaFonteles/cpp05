@@ -6,7 +6,7 @@
 /*   By: afontele <afontele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:31:12 by afontele          #+#    #+#             */
-/*   Updated: 2026/01/22 13:55:42 by afontele         ###   ########.fr       */
+/*   Updated: 2026/01/23 11:08:29 by afontele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 #include <exception>
 #include <string>
 #include "Form.hpp"
+
+#define RED "\033[1;31m"
+#define GREEN "\033[1;32m"
+#define YELLOW "\033[1;33m"
+#define END "\033[0m"
 
 class	Form;
 

@@ -6,14 +6,14 @@
 /*   By: afontele <afontele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:31:36 by afontele          #+#    #+#             */
-/*   Updated: 2026/01/22 15:39:28 by afontele         ###   ########.fr       */
+/*   Updated: 2026/01/23 12:31:01 by afontele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : _name("default"), _grade(150) {
-	std::cout << "Default Bureaucrat created" << std::endl;
+Bureaucrat::Bureaucrat() : _name("Default Bureaucrat"), _grade(150) {
+	std::cout << _name << " created." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name) {
@@ -75,7 +75,7 @@ void	Bureaucrat::incrementGrade()
 void	Bureaucrat::signForm(Form &f)
 {
 	if (f.isSigned()) {
-		std::cout << "Form " << f.getName() << " is already signed." << std::endl;
+		std::cout << YELLOW << "Form " << f.getName() << " is already signed." << END << std::endl;
 		return ;
 	}
 	try
@@ -84,23 +84,23 @@ void	Bureaucrat::signForm(Form &f)
 	}
 	catch(const std::exception &e)
 	{
-		std::cout << this->_name << " couldn't sign " << f.getName() << " because " << e.what() << std::endl ;
+		std::cout << RED << this->_name << " couldn't sign " << f.getName() << " because " << e.what() << END << std::endl ;
 		return ;
 	}
 }
 
 const char	*Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Grade is too high");
+	return (RED "Grade is too high" END);
 }
 
 const char	*Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Grade is too low");
+	return (RED "Grade is too low" END);
 }
 
 std::ostream	&operator<<(std::ostream &out, const Bureaucrat &other)
 {
-	out << other.getName() << ", bureaucrat grade " << other.getGrade() << std::endl;
+	out << YELLOW << other.getName() << ", bureaucrat grade " << other.getGrade() << "." << END << std::endl;
 	return (out);
 }
