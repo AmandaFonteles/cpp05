@@ -6,7 +6,7 @@
 /*   By: afontele <afontele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 15:56:01 by afontele          #+#    #+#             */
-/*   Updated: 2026/01/23 19:59:50 by afontele         ###   ########.fr       */
+/*   Updated: 2026/01/26 17:15:55 by afontele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,18 @@ inside it.*/
 
 #pragma once
 
-class ShrubberyCreationForm
+#include <iostream>
+#include <string>
+#include "AForm.hpp"
+
+class	ShrubberyCreationForm : public AForm
 {
 private:
-	/* data */
+	std::string	_target;
 public:
-	ShrubberyCreationForm(/* args */);
+	ShrubberyCreationForm();
+	ShrubberyCreationForm(std::string target);
+	ShrubberyCreationForm(const ShrubberyCreationForm &other);
+	ShrubberyCreationForm	&operator=(const ShrubberyCreationForm &other);
 	~ShrubberyCreationForm();
 };
-
-ShrubberyCreationForm::ShrubberyCreationForm(/* args */)
-{
-}
-
-ShrubberyCreationForm::~ShrubberyCreationForm()
-{
-}
