@@ -6,7 +6,7 @@
 /*   By: afontele <afontele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 15:12:39 by afontele          #+#    #+#             */
-/*   Updated: 2026/01/23 16:00:31 by afontele         ###   ########.fr       */
+/*   Updated: 2026/01/29 18:06:47 by afontele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@ public:
 	bool				isSigned() const;
 	int					getSigGrade()const ;
 	int					getExecGrade() const;
-	virtual void		beSigned(const Bureaucrat &b) = 0;
+	void		beSigned(const Bureaucrat &b);
 	const std::string	getIsSigned() const;
+	virtual void		execute(Bureaucrat const &executor) const = 0; 
 	
 	class	GradeTooHighException : public std::exception
 	{

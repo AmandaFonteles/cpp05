@@ -6,12 +6,12 @@
 /*   By: afontele <afontele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 15:12:29 by afontele          #+#    #+#             */
-/*   Updated: 2026/01/23 12:30:39 by afontele         ###   ########.fr       */
+/*   Updated: 2026/01/29 19:09:36 by afontele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
-//ADD VALIDATION FOR GRADES IN FORM 1-150
+
 Form::Form() : _formName("Default Form"), _signed(false), _sigGrade(150), _execGrade(150) {
 	std::cout << _formName << " created." << std::endl;
 }

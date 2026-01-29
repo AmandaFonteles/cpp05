@@ -6,7 +6,7 @@
 /*   By: afontele <afontele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 15:56:17 by afontele          #+#    #+#             */
-/*   Updated: 2026/01/26 17:46:52 by afontele         ###   ########.fr       */
+/*   Updated: 2026/01/29 19:25:07 by afontele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,38 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {
 	std::cout << getName() << "destructor called." << std::endl;
+}
+
+std::string	ShrubberyCreationForm::getTarget() const {
+	return (this->_target);
+}
+
+void		ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
+	/*You must check that the form is signed and that the grade of the
+	bureaucrat attempting to execute the form is high enough.
+	Otherwise, throw an appropriate exception.*/
+	//check if signed
+	//if not, call beSined
+	//check if can execute
+	//if yes, execute
+	std::ofstream	file;
+
+	file.open((_target + ".shrubbery").c_str());
+	if (file.fail()) {
+		std::cerr << "Error opening file\n";
+		return ;
+	}
+	file << "     A" << std::endl;
+	file << "    AAA" << std::endl;
+	file << "   AAAAA" << std::endl;
+	file << "  AAAAAAA" << std::endl;
+	file << "    | |" << std::endl;
+
+	file.close();
+}
+
+std::ostream	&operator<<(std::ostream &out, const ShrubberyCreationForm &obj) {
+	out << YELLOW << obj.getName() << ", sign grade " << obj.getSigGrade()
+	<< ", execution grade " << obj.getExecGrade() << obj.getIsSigned() << END << std::endl;
+	return (out);
 }
