@@ -6,7 +6,7 @@
 /*   By: afontele <afontele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 15:12:39 by afontele          #+#    #+#             */
-/*   Updated: 2026/01/29 18:06:47 by afontele         ###   ########.fr       */
+/*   Updated: 2026/02/04 11:29:46 by afontele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,11 @@ public:
 	void		beSigned(const Bureaucrat &b);
 	const std::string	getIsSigned() const;
 	virtual void		execute(Bureaucrat const &executor) const = 0; 
-	
+	class	NoSignException : public std::exception
+	{
+	public:
+		virtual const char *what()const throw();
+	};
 	class	GradeTooHighException : public std::exception
 	{
 	public:

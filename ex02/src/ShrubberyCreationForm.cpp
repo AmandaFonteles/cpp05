@@ -6,22 +6,22 @@
 /*   By: afontele <afontele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 15:56:17 by afontele          #+#    #+#             */
-/*   Updated: 2026/01/29 19:25:07 by afontele         ###   ########.fr       */
+/*   Updated: 2026/02/04 15:36:05 by afontele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Shrubbery Form", 145, 137), _target("default") {
-	std::cout << getName() << "default constructor called." << std::endl;
+	std::cout << getName() << " default constructor called." << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Shrubbery Form", 145, 137), _target(target) {
-	std::cout << getName() << "constructor called." << std::endl;
+	std::cout << getName() << " constructor called." << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) : AForm(other) {
-	std::cout << getName() << "copy constructor called." << std::endl;
+	std::cout << getName() << " copy constructor called." << std::endl;
 	this->_target = other._target;
 }
 
@@ -34,7 +34,7 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationF
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {
-	std::cout << getName() << "destructor called." << std::endl;
+	std::cout << getName() << " destructor called." << std::endl;
 }
 
 std::string	ShrubberyCreationForm::getTarget() const {
@@ -42,27 +42,26 @@ std::string	ShrubberyCreationForm::getTarget() const {
 }
 
 void		ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
-	/*You must check that the form is signed and that the grade of the
-	bureaucrat attempting to execute the form is high enough.
-	Otherwise, throw an appropriate exception.*/
-	//check if signed
-	//if not, call beSined
-	//check if can execute
-	//if yes, execute
-	std::ofstream	file;
+	if (!this->isSigned())
+		throw (AForm::NoSignException());
+	else if (executor.getGrade() > this->getExecGrade())
+		throw (AForm::GradeTooLowException());
+	else {
+		std::ofstream	file;
 
-	file.open((_target + ".shrubbery").c_str());
-	if (file.fail()) {
-		std::cerr << "Error opening file\n";
-		return ;
+		file.open((_target + "_shrubbery").c_str());
+		if (file.fail()) {
+			std::cerr << "Error opening file\n";
+			return ;
+		}
+		file << "     A" << std::endl;
+		file << "    AAA" << std::endl;
+		file << "   AAAAA" << std::endl;
+		file << "  AAAAAAA" << std::endl;
+		file << "    | |" << std::endl;
+
+		file.close();
 	}
-	file << "     A" << std::endl;
-	file << "    AAA" << std::endl;
-	file << "   AAAAA" << std::endl;
-	file << "  AAAAAAA" << std::endl;
-	file << "    | |" << std::endl;
-
-	file.close();
 }
 
 std::ostream	&operator<<(std::ostream &out, const ShrubberyCreationForm &obj) {

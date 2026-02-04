@@ -6,7 +6,7 @@
 /*   By: afontele <afontele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:31:12 by afontele          #+#    #+#             */
-/*   Updated: 2026/01/29 19:06:32 by afontele         ###   ########.fr       */
+/*   Updated: 2026/02/02 17:06:42 by afontele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 #define YELLOW "\033[1;33m"
 #define END "\033[0m"
 
-class	Form;
+class	AForm;
 
 class Bureaucrat
 {
@@ -41,7 +41,8 @@ public:
 	int			getGrade() const;
 	void		incrementGrade(); //--
 	void		decrementGrade(); //++
-	void		signForm(Form &f);
+	void		signForm(AForm &f);
+	void		executeForm(AForm const &form) const;
 	//Exception nested classes
 	class		GradeTooHighException : public std::exception
 	{

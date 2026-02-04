@@ -6,7 +6,7 @@
 /*   By: afontele <afontele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 15:57:17 by afontele          #+#    #+#             */
-/*   Updated: 2026/01/29 18:52:27 by afontele         ###   ########.fr       */
+/*   Updated: 2026/02/04 15:42:46 by afontele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@
 class PresidentialPardonForm : public AForm {
 private:
 	std::string	_target;
-public:
 	PresidentialPardonForm();
+	
+public:
 	PresidentialPardonForm(std::string target);
 	PresidentialPardonForm(PresidentialPardonForm const &other);
 	PresidentialPardonForm	&operator=(PresidentialPardonForm const &other);

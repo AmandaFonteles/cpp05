@@ -6,7 +6,7 @@
 #    By: afontele <afontele@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/12 15:28:07 by afontele          #+#    #+#              #
-#    Updated: 2026/01/23 15:54:20 by afontele         ###   ########.fr        #
+#    Updated: 2026/02/02 14:48:34 by afontele         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,9 @@ NAME = form1
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
-SRC = $(SRC_DIR)main.cpp $(SRC_DIR)Form.cpp $(SRC_DIR)Bureaucrat.cpp
+SRC = $(SRC_DIR)main.cpp $(SRC_DIR)AForm.cpp $(SRC_DIR)Bureaucrat.cpp \
+	  $(SRC_DIR)PresidentialPardonForm.cpp $(SRC_DIR)RobotomyRequestForm.cpp \
+	  $(SRC_DIR)ShrubberyCreationForm.cpp
 INC = -I inc
 OBJDIR = obj/
 SRC_DIR = src/

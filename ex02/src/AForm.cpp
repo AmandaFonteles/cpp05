@@ -6,14 +6,14 @@
 /*   By: afontele <afontele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 15:12:29 by afontele          #+#    #+#             */
-/*   Updated: 2026/01/29 19:09:51 by afontele         ###   ########.fr       */
+/*   Updated: 2026/02/04 15:59:18 by afontele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
 AForm::AForm() : _formName("Default Form"), _signed(false), _sigGrade(150), _execGrade(150) {
-	std::cout << _formName << " created." << std::endl;
+	std::cout << _formName << " AForm constructor called." << std::endl;
 }
 
 AForm::AForm(const std::string name, const int gradeSig, const int gradeExec)
@@ -24,7 +24,7 @@ AForm::AForm(const std::string name, const int gradeSig, const int gradeExec)
 	if (gradeExec < 1 || gradeSig < 1)
 		throw(AForm::GradeTooHighException());
 
-	std::cout << name << " Form created" << std::endl;
+	std::cout << _formName << " AForm constructor called." << std::endl;
 }
 
 //We include "_copy" to the name only for debugging purposes, usually we would not do this.
@@ -41,7 +41,7 @@ AForm	&AForm::operator=(const AForm &other) {
 }
 
 AForm::~AForm() {
-	std::cout << "Form" << _formName << " destroyed" << std::endl;
+	std::cout << _formName << " AForm destroyed." << std::endl;
 }
 
 const std::string	AForm::getName() const {
@@ -81,6 +81,10 @@ const char *AForm::GradeTooHighException::what()const throw() {
 
 const char *AForm::GradeTooLowException::what()const throw() {
 	return (RED "Grade is too low" END);
+}
+
+const char *AForm::NoSignException::what()const throw() {
+	return (RED "The form isn't signed" END);
 }
 
 std::ostream	&operator<<(std::ostream &out, const AForm &obj) {

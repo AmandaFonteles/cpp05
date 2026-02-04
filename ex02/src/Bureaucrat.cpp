@@ -6,7 +6,7 @@
 /*   By: afontele <afontele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:31:36 by afontele          #+#    #+#             */
-/*   Updated: 2026/01/23 12:31:01 by afontele         ###   ########.fr       */
+/*   Updated: 2026/02/04 15:49:31 by afontele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name) {
 		throw(Bureaucrat::GradeTooLowException());
 	else
 		this->_grade = grade;
-	std::cout << "Bureaucrat " << this->_name << " created" << std::endl;
+	std::cout << "Bureaucrat " << this->_name << " created." << std::endl;
 }
 
 //We include "_copy" to the name only for debugging purposes, usually we would not do this.
@@ -43,7 +43,7 @@ Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &copy)
 }
 
 Bureaucrat::~Bureaucrat() {
-	std::cout << "Bureaucrat " << this->_name << " destroyed" << std::endl;
+	std::cout << "Bureaucrat " << this->_name << " destroyed." << std::endl;
 }
 
 const std::string	Bureaucrat::getName() const
@@ -72,7 +72,7 @@ void	Bureaucrat::incrementGrade()
 	std::cout << "Bureaucrat " << this->_name << " incremented to grade " << this->_grade << std::endl;
 }
 
-void	Bureaucrat::signForm(Form &f)
+void	Bureaucrat::signForm(AForm &f)
 {
 	if (f.isSigned()) {
 		std::cout << YELLOW << "Form " << f.getName() << " is already signed." << END << std::endl;
@@ -84,8 +84,20 @@ void	Bureaucrat::signForm(Form &f)
 	}
 	catch(const std::exception &e)
 	{
-		std::cout << RED << this->_name << " couldn't sign " << f.getName() << " because " << e.what() << END << std::endl ;
+		std::cout << RED << this->_name << " couldn't sign " << f.getName() << " because " << e.what() << END << std::endl;
 		return ;
+	}
+}
+
+void	Bureaucrat::executeForm(AForm const &form) const {
+	try
+	{
+		form.execute(*this);
+		std::cout << GREEN << this->getName() << " executed " << form.getName() << END << std::endl;
+	}
+	catch(const std::exception &e)
+	{
+		std::cout << RED << this->_name << " couldn't execute " << form.getName() << " because: " << e.what() << END << std::endl;
 	}
 }
 
