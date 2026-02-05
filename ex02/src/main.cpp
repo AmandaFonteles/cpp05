@@ -6,7 +6,7 @@
 /*   By: afontele <afontele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:27:36 by afontele          #+#    #+#             */
-/*   Updated: 2026/02/04 16:46:12 by afontele         ###   ########.fr       */
+/*   Updated: 2026/02/05 11:43:32 by afontele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "../inc/PresidentialPardonForm.hpp"
 #include "../inc/RobotomyRequestForm.hpp"
 #include "../inc/ShrubberyCreationForm.hpp"
+#include <ctime>
 
 void	test1() {
 	std::cout << YELLOW << "=== TEST 1 ===" << END << std::endl;
@@ -82,7 +83,7 @@ void	test2() {
 	
 	std::cout << "=== Bureaucrat tries to execute the form ===" << std::endl;
 	c.executeForm(*f);
-	
+
 	std::cout << "=== DESTRUCTORS ===" << std::endl;
 	delete	f;
 }
@@ -100,6 +101,9 @@ void	test3() {
 	std::cout << b;
 	std::cout << c;
 	
+	std::cout << "=== Bureaucrat tries to execute the form ===" << std::endl;
+	c.executeForm(*f);	
+	
 	std::cout << "=== Bureaucrat tries to sign the form ===" << std::endl;
 	b.signForm(*f);
 	
@@ -107,6 +111,7 @@ void	test3() {
 	
 	std::cout << "=== Bureaucrat tries to sign the form ===" << std::endl;
 	b.signForm(*f);
+	
 	std::cout << "=== Actual state ===" << std::endl;
 	std::cout << *f;
 	
@@ -159,7 +164,6 @@ void	test4() {
 	
 	std::cout << "=== DESTRUCTORS ===" << std::endl;
 	delete	f;
-	delete g;
 }
 
 void	test5() {
@@ -187,7 +191,7 @@ void	test5() {
 	std::cout << "=== F Form ===" << std::endl;
 	std::cout << *f;
 	
-	g = f;
+	*g = *f;
 	
 	std::cout << "=== G Form after assignement ===" << std::endl;
 	std::cout << *g;
@@ -203,21 +207,22 @@ void	test5() {
 	delete	f;
 	delete g;
 }
- //CHeck why is leaking and invalid read
+
 int main(void)
 {
 	//RobotomyRequestForm - I moved to the main, because if I call execute multiple times in one sec (with srand inside), it will give me the same answer;
 	std::srand(time(NULL));
 	
 	test1();
-	std::cout << "=============================================\n" << std::endl;
+	std::cout << "\n=============================================\n" << std::endl;
 	test2();
-	std::cout << "=============================================\n" << std::endl;
+	std::cout << "\n=============================================\n" << std::endl;
 	test3();
-	std::cout << "=============================================\n" << std::endl;
+	std::cout << "\n=============================================\n" << std::endl;
 	test4();
-	std::cout << "=============================================\n" << std::endl;
+	std::cout << "\n=============================================\n" << std::endl;
 	test5();
-	std::cout << "=============================================\n" << std::endl;
+	std::cout << "\n=============================================\n" << std::endl;
+	
 	return (0);
 }

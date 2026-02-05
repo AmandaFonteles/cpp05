@@ -6,7 +6,7 @@
 /*   By: afontele <afontele@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 15:56:53 by afontele          #+#    #+#             */
-/*   Updated: 2026/02/04 15:53:03 by afontele         ###   ########.fr       */
+/*   Updated: 2026/02/04 18:14:58 by afontele         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ void	RobotomyRequestForm::execute(Bureaucrat const &executor) const {
 		throw (AForm::GradeTooLowException());
 	else {
 		int	ram = rand();
+		std::cout << GREEN << "RrrRrRrRroAR" << END << std::endl;
 		if (ram % 2) {
-			std::cout << GREEN << "RrrRrRrRroAR" << END << std::endl;
 			std::cout << GREEN << this->_target << " has been robotomized successfully." << END << std::endl;
 		}
 		else
